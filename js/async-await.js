@@ -1,24 +1,8 @@
-// basic structure of a promise
-// const _status = false;
-// console.log('Task 1');
-// const promise = new Promise(function(resolve, reject){
-//     setTimeout(function(){
-//         if(_status){
-//             resolve('Task 2');
-//         }else{
-//             reject('There is an error');
-//         }
-//     },2000);
-// });
-// promise
-//     .then(function(val){
-//         console.log(val);
-//     })
-//     .catch(function(err){
-//         console.log(err);
-//     })
-// console.log('Task 3');
-
+// structure of an async function
+// async function test(){
+//     return 'Hello';
+// }
+// console.log(test());
 const paymentStatus = true;
 const marks = 90;
 function enroll(){
@@ -55,12 +39,10 @@ function getCertificate(){
     });
     return getCertificate;
 }
-enroll()
-    .then(progress)
-    .then(getCertificate)
-    .then(function(val){
-        console.log(val);
-    })
-    .catch(function(err){
-        console.log(err);
-    });
+async function course(){
+    await enroll();
+    await progress();
+    const msg = await getCertificate();
+    console.log(msg);
+}
+course();
