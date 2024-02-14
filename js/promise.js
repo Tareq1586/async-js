@@ -26,7 +26,7 @@ function enroll(){
     const promise = new Promise(function(resolve, reject){
         setTimeout(function(){
             if(paymentStatus){
-                resolve();
+                resolve('Carry on');
             }else{
                 reject('Payment not succeed');
             }
